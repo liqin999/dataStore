@@ -35,7 +35,7 @@ export default class RouteIndex extends React.Component{
      	 	//创建路由链接对应的组件页面
      	 	if(database.length == 0){
      	 		  routeHtml.push(
-               <Redirect to="/reportform/index.html#/"/>
+               <Redirect key={132465} to="/reportform/index.html#/"/>
               )
      	 	}else{
                	for(var i=0;i<database.length;i++){
