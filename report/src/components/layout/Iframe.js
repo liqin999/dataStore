@@ -46,23 +46,12 @@ constructor(props) {
   //假数据：    mockData.allTables;
   //测试数据：  getDomain() + '/dm/jdbc/allTables';
 
-  let _getallTableUrl = getDomain() + '/dm/jdbc/allTables';
+  let _getallTableUrl = mockData.allTables;
 
   search.replace(reg,function(arg1,arg2,arg3){
      obj[arg2] = arg3
   });
   status = obj.status;
-
-  sessionStorage.setItem('status', status);
-
-  if (sessionStorage.getItem("status")) {
-    status = sessionStorage.getItem("status");
-  }
-
-  console.log(search);
-  console.log(obj);
-  console.log('status是：'+status);
-
 
     axios.get(_getallTableUrl)
     .then(function (ret) {
@@ -76,8 +65,8 @@ constructor(props) {
          sessionStorage.setItem('dStatus', 'ok');
     });
 
-   if (!sessionStorage.getItem("dStatus")) {
-        let isLoginUrl= getDomain() + '/dm/jdbc/login';
+   if (!sessionStorage.getItem("dStatus")) {//处理单点登录
+       let isLoginUrl= getDomain() + '/dm/jdbc/login';
         window.location.assign(isLoginUrl);
     }
 

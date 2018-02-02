@@ -226,7 +226,7 @@ class Tablelist extends React.Component {
   handleQuery(){//数据查询
        //假数据：    mockData.onlyTable;
        //测试数据：  getDomain() + '/dm/jdbc/onlyTable';
-      let _url=  getDomain() + '/dm/jdbc/onlyTable';
+      let _url=  mockData.onlyTable;
       this.handleGetData(_url);
   }
   render() {
